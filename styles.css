@@ -1,0 +1,42 @@
+.heart {
+  position: fixed;
+  background-color: red;
+  transform: rotate(45deg);
+  animation: floatUp 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.8;
+  will-change: transform, opacity;
+  transition: transform 0.3s;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.heart::before {
+  top: -50%;
+  left: 0;
+}
+
+.heart::after {
+  left: -50%;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(1.5) rotate(45deg);
+  }
+}
