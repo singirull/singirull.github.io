@@ -73,10 +73,27 @@
 
   </style>
 </head>
-<body>
+<body onClick={addHeart()}>
   <script src="script.js"></script>
+  <script>
+    const endpoint = 'https://hearts-counter-79837642040.europe-west3.run.app';
+    
+    async function addHeart() {
+      const res = await fetch(endpoint, { method: 'POST' });
+      const data = await res.json();
+      document.getElementById("heart-total").textContent = data.count;
+    }
+    
+    async function loadHearts() {
+      const res = await fetch(endpoint);
+      const data = await res.json();
+      document.getElementById("heart-total").textContent = data.count;
+    }
+    loadHearts();
+  </script>
   <div class="text-container">
     <p>Piia & Sander</p>
+    ❤️ <span id="heart-total">0</span> hearts shared
   </div>
 </body>
 </html>
