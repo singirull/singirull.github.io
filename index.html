@@ -1,99 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-
-  <title>Piia & Sander</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      background: url('bg.webp') center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    body::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 80%;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-    }
-    .text-container {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      padding: 20px;
-      color: rgba(255, 255, 255, 0.8);
-      font-family: 'Dancing Script', Georgia, sans-serif;
-      z-index: 1;
-      
-      transform: rotate(-2deg);
-    }
-
-    .text-container p {
-      font-size: 72px;
-    }
-
-    @media (max-width: 768px) {
-      .text-container p {
-        font-size: 48px;
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Piia & Sander" />
+    <meta property="og:title" content="Piia & Sander" />
+    <meta property="og:image" content="https://piiajasander.ee/bg.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://piiajasander.ee" />
+    <title>Piia & Sander</title>
+    <script type="module" crossorigin src="/assets/index-Dnca7VxY.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DipRKxbv.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
       }
-    }
+    </script>
 
-    @media (min-width: 769px) and (max-width: 1200px) {
-      .text-container p {
-        font-size: 60px;
-      }
-    }
-
-  </style>
-</head>
-<body onClick={addHeart()}>
-  <script src="script.js"></script>
-  <script>
-    const endpoint = 'https://hearts-counter-79837642040.europe-west3.run.app';
-    
-    async function addHeart() {
-      const res = await fetch(endpoint, { method: 'POST' });
-      const data = await res.json();
-      document.getElementById("heart-total").textContent = data.count;
-    }
-    
-    async function loadHearts() {
-      const res = await fetch(endpoint);
-      const data = await res.json();
-      document.getElementById("heart-total").textContent = data.count;
-    }
-    loadHearts();
-  </script>
-  <div class="text-container">
-    <p>Piia & Sander</p>
-    ❤️ <span id="heart-total">0</span> hearts shared
-  </div>
-</body>
+  </body>
 </html>
